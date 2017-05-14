@@ -107,5 +107,10 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_COOLDOWN_ENABLED,
         Settings.System.NOTIFICATION_COOLDOWN_ALL,
         Settings.System.NOTIFICATION_COOLDOWN_VIBRATE_UNLOCKED,
+        Settings.System.STATUS_BAR_LOGO,
+        Settings.System.STATUS_BAR_LOGO_POSITION,
+        Settings.System.STATUS_BAR_LOGO_STYLE,
+        Settings.System.STATUS_BAR_LOGO_COLOR,
+        Settings.System.STATUS_BAR_LOGO_COLOR_PICKER,
     };
 }
