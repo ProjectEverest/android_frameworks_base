@@ -79,6 +79,12 @@
         android:icon="@drawable/ic_statusbar_airplane" />
 
     <com.android.systemui.tuner.StatusBarSwitch
+        android:key="nfc"
+        android:persistent="false"
+        android:title="@string/status_bar_nfc"
+        android:icon="@drawable/ic_statusbar_nfc" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
         android:key="vpn"
         android:title="@string/status_bar_vpn"
         android:icon="@drawable/ic_statusbar_vpn" />
