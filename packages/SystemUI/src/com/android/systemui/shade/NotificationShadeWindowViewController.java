@@ -686,4 +686,8 @@ public class NotificationShadeWindowViewController implements Dumpable {
     void setDragDownHelper(DragDownHelper dragDownHelper) {
         mDragDownHelper = dragDownHelper;
     }
+
+    public float getExpandedFraction() {
+        return mNotificationPanelViewController.getExpandedFraction();
+    }
 }
