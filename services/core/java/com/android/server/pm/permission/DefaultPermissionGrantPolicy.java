@@ -1174,6 +1174,10 @@ final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage(pm,
                 getDefaultProviderAuthorityPackage("com.oneplus.camera", userId),
                 userId, WRITE_PERMISSIONS);
+
+        // MIUI Gallery
+        grantSystemFixedPermissionsToSystemPackage(pm, "com.miui.gallery", userId,
+                STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
