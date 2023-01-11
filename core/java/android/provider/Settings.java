@@ -12976,6 +12976,12 @@ public final class Settings {
          */
         public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
 
+	/**
+         * Quicksettings tile shape
+         * @hide
+         */
+        public static final String QS_TILE_SHAPE = "qs_tile_shape";
+
         /**
          * Control whether FLAG_SECURE is ignored for all windows.
          * @hide
