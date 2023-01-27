@@ -1180,6 +1180,19 @@ class KeyguardUnlockAnimationController @Inject constructor(
 
     companion object {
 
+        /**
+         * Return whether the Google Nexus launcher is underneath the keyguard, vs. some other
+         * launcher or an app. If so, we can communicate with it to perform in-window/shared element
+         * transitions!
+         */
+        fun isNexusLauncherUnderneath(): Boolean {
+            return when (ActivityManagerWrapper.getInstance().runningTask?.topActivity?.className) {
+                QuickStepContract.LAUNCHER_ACTIVITY_CLASS_NAME,
+                QuickStepContract.NEXUS_LAUNCHER_ACTIVITY_CLASS_NAME -> true
+                else -> false
+            }
+        }
+
         fun isFoldable(context: Context): Boolean {
             return context.resources.getIntArray(R.array.config_foldedDeviceStates).isNotEmpty()
         }
