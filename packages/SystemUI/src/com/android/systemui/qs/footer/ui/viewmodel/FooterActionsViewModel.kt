@@ -105,6 +105,18 @@ class FooterActionsViewModel(
         }
     }
 
+    private fun onSettingsButtonLongClicked(expandable: Expandable): Boolean {
+        if (falsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
+            return false
+        }
+
+        return footerActionsInteractor.showBaseCamp(expandable)
+    }
+
+    private fun doNothingLongClick(expandable: Expandable): Boolean {
+        return false
+    }
+
     private fun onPowerButtonClicked(expandable: Expandable) {
         val mKeyguard = Dependency.get(KeyguardStateController::class.java)
         if (mKeyguard.isShowing() && mKeyguard.isMethodSecure() 
@@ -339,6 +351,7 @@ fun userSwitcherButtonViewModel(
         iconTint = null,
         backgroundColor = R.attr.shadeInactive,
         onClick = onUserSwitcherClicked,
+        onLongClick = this::doNothingLongClick,
     )
 }
 
