@@ -42,6 +42,8 @@ import android.view.flags.Flags;
 
 import com.android.internal.annotations.VisibleForTesting;
 
+import com.android.internal.annotations.GuardedBy;
+
 /**
  * Contains methods to standard constants used in the UI for timeouts, sizes, and distances.
  */
@@ -391,6 +393,7 @@ public class ViewConfiguration {
     @UnsupportedAppUsage
     private boolean sHasPermanentMenuKeySet;
 
+    @GuardedBy("sLock")
     @UnsupportedAppUsage
     static final SparseArray<ViewConfiguration> sConfigurations =
             new SparseArray<ViewConfiguration>(2);
