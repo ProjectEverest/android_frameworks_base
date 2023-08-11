@@ -266,7 +266,9 @@ public class QSImpl implements QS, CommandQueue.Callbacks, StatusBarStateControl
             setQsVisible(savedInstanceState.getBoolean(EXTRA_VISIBLE));
             setExpanded(savedInstanceState.getBoolean(EXTRA_EXPANDED));
             setListening(savedInstanceState.getBoolean(EXTRA_LISTENING));
-            setEditLocation(mRootView);
+            if (view != null) {
+                setEditLocation(view);
+            }
             mQSCustomizerController.restoreInstanceState(savedInstanceState);
             if (mQsExpanded) {
                 mQSPanelController.getTileLayout().restoreInstanceState(savedInstanceState);
@@ -412,7 +414,11 @@ public class QSImpl implements QS, CommandQueue.Callbacks, StatusBarStateControl
     }
 
     public void onConfigurationChanged(Configuration newConfig) {
-        setEditLocation(getView());
+        super.onConfigurationChanged(newConfig);
+        View editView = getView();
+        if (editView != null) {
+            setEditLocation(editView);
+        }
         if (newConfig.getLayoutDirection() != mLayoutDirection) {
             mLayoutDirection = newConfig.getLayoutDirection();
             if (mQSAnimator != null) {

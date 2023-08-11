@@ -286,7 +286,7 @@ constructor(
     /** @return true if the interaction is accepted, false if it should be cancelled */
     internal fun canDragDown(): Boolean {
         return (statusBarStateController.state == StatusBarState.KEYGUARD ||
-            nsslController.isInLockedDownShade()) && (qS.isFullyCollapsed || useSplitShade)
+            nsslController.isInLockedDownShade()) && (qS?.isFullyCollapsed ?: false || useSplitShade)
     }
 
     /** Called by the touch helper when when a gesture has completed all the way and released. */
