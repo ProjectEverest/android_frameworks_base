@@ -604,7 +604,6 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                     }
                 },
                 UserHandle.USER_ALL);
-                
         mSystemSettings.registerContentObserverForUser(
                 Settings.System.getUriFor(Settings.System.QS_TILE_VERTICAL_LAYOUT),
                 false,
