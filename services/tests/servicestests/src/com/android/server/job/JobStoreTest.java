@@ -7,6 +7,8 @@ import static android.text.format.DateUtils.HOUR_IN_MILLIS;
 
 import static com.android.server.job.JobStore.JOB_FILE_SPLIT_PREFIX;
 
+import static com.android.server.job.JobStore.JOB_FILE_SPLIT_PREFIX;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
