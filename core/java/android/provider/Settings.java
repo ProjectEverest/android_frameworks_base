@@ -6440,6 +6440,11 @@ public final class Settings {
         public static final String TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
 
 	/**
+         * @hide
+         */
+        public static final String VOLUME_MEDIA_OUTPUT_TOGGLE = "volume_media_output_toggle";
+
+        /**
          * Whether StatusBar icons should use app icon
          * @hide
          */
