@@ -6091,6 +6091,11 @@ public final class Settings {
          */
         public static final String SHOW_APP_VOLUME = "show_app_volume";
 
+	    /**
+         * @hide
+         */
+        public static final String VOLUME_MEDIA_OUTPUT_TOGGLE = "volume_media_output_toggle";
+
         /**
          * boolean value. toggles using arrow key locations on nav bar
          * as left and right dpad keys
