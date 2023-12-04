@@ -9485,6 +9485,7 @@ public class WindowManagerService extends IWindowManager.Stub
 
     boolean shouldRestoreImeVisibility(IBinder imeTargetWindowToken) {
         final Task imeTargetWindowTask;
+        boolean wasLastShown = false;
         synchronized (mGlobalLock) {
             final WindowState imeTargetWindow = mWindowMap.get(imeTargetWindowToken);
             if (imeTargetWindow == null) {
@@ -9496,13 +9497,13 @@ public class WindowManagerService extends IWindowManager.Stub
             }
             if (imeTargetWindow.mActivityRecord != null
                     && imeTargetWindow.mActivityRecord.mLastImeShown) {
-                return true;
+                wasLastShown = true;
             }
         }
         final TaskSnapshot snapshot = getTaskSnapshot(imeTargetWindowTask.mTaskId,
                 imeTargetWindowTask.mUserId, false /* isLowResolution */,
                 false /* restoreFromDisk */);
-        return snapshot != null && snapshot.hasImeSurface();
+        return snapshot != null && (snapshot.hasImeSurface() || wasLastShown);
     }
 
     @Override
