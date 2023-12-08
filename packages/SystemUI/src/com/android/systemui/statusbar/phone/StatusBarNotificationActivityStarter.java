@@ -125,7 +125,7 @@ public class StatusBarNotificationActivityStarter implements NotificationActivit
 
     private final MetricsLogger mMetricsLogger;
     private final StatusBarNotificationActivityStarterLogger mLogger;
-
+    private final CentralSurfaces mCentralSurfaces;
     private final NotificationPresenter mPresenter;
     private final ShadeViewController mShadeViewController;
     private final NotificationShadeWindowController mNotificationShadeWindowController;
@@ -161,6 +161,7 @@ public class StatusBarNotificationActivityStarter implements NotificationActivit
             ActivityIntentHelper activityIntentHelper,
             MetricsLogger metricsLogger,
             StatusBarNotificationActivityStarterLogger logger,
+	    CentralSurfaces centralSurfaces,
             OnUserInteractionCallback onUserInteractionCallback,
             NotificationPresenter presenter,
             ShadeViewController shadeViewController,
@@ -195,6 +196,7 @@ public class StatusBarNotificationActivityStarter implements NotificationActivit
         mShadeAnimationInteractor = shadeAnimationInteractor;
         mMetricsLogger = metricsLogger;
         mLogger = logger;
+        mCentralSurfaces = centralSurfaces;
         mOnUserInteractionCallback = onUserInteractionCallback;
         mPresenter = presenter;
         mShadeViewController = shadeViewController;
