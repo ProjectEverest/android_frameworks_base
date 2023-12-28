@@ -2578,7 +2578,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         mProcessList = mInjector.getProcessList(this);
         mProcessList.init(this, activeUids, mPlatformCompat);
         mAppProfiler = new AppProfiler(this, BackgroundThread.getHandler().getLooper(),
-                new LowMemDetector(this));
+                new LowMemDetector());
         mPhantomProcessList = new PhantomProcessList(this);
         mOomAdjuster = mConstants.ENABLE_NEW_OOMADJ
                 ? new OomAdjusterModernImpl(this, mProcessList, activeUids)

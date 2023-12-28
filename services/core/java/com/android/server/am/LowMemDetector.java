@@ -37,8 +37,6 @@ import java.lang.annotation.RetentionPolicy;
  */
 public final class LowMemDetector {
     private static final String TAG = "LowMemDetector";
-    private final ActivityManagerService mAm;
-    private final LowMemThread mLowMemThread;
     private boolean mAvailable;
 
     private final Object mPressureStateLock = new Object();
@@ -59,14 +57,13 @@ public final class LowMemDetector {
     @Retention(RetentionPolicy.SOURCE)
     public @interface MemFactor{}
 
-    LowMemDetector(ActivityManagerService am) {
-        mAm = am;
-        mLowMemThread = new LowMemThread();
+    LowMemDetector() {
+        LowMemThread lowMemThread = new LowMemThread();
         if (init() != 0) {
             mAvailable = false;
         } else {
             mAvailable = true;
-            mLowMemThread.start();
+            lowMemThread.start();
         }
     }
 
