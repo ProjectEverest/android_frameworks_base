@@ -2227,6 +2227,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
         // Index of the last row that is actually visible.
         int outmostVisibleRowIndex = isOutmostIndexMax ? -1 : Short.MAX_VALUE;
+        
+        int hiddenRowsCount = 0;
 
         // apply changes to all rows
         for (final VolumeRow row : mRows) {
@@ -2242,6 +2244,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                 Util.setVisOrGone(row.view, shouldBeVisible);
             } else if (shouldBeInvisible) {
                 row.view.setVisibility(View.INVISIBLE);
+                if (!appsExpanded) {
+                    hiddenRowsCount++;
+                }
             }
 
             if ((shouldBeVisible || isExpandableRow || isAppRow)
@@ -2306,7 +2311,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
             // Track previous rows to calculate translations
             int visibleRowsCount = 0;
-            int hiddenRowsCount = 0;
+            int hiddenRowsReset = 0;
             int rowWidth = mDialogWidth + mRingerRowsPadding;
 
             for (final VolumeRow row : mRows) {
@@ -2317,10 +2322,17 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         || mExpansionState == ExpansionState.APPS_EXPANDED;
                 final boolean shouldBeVisible = shouldBeVisibleH(row, activeRow);
 
+                if ((expanded || appsExpanded) && hiddenRowsReset == 0) {
+                    hiddenRowsCount = 0;
+                    hiddenRowsReset++;
+                }
+
                 if (shouldBeVisible) {
                     visibleRowsCount++;
                 } else if (isExpandableRow) {
-                    hiddenRowsCount++;
+                    if (expanded || appsExpanded) {
+                        hiddenRowsCount++;
+                    }
                 }
 
                 // Only move rows that are either expandable or visible and not the default stream
