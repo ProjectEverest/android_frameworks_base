@@ -6368,6 +6368,12 @@ public final class Settings {
          * @hide
          */
         public static final String NETWORK_TRAFFIC_UNIT_TYPE = "network_traffic_unit_type";
+        
+        /**
+         * Up/Down indicator preference for network traffic
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_DRAWABLE = "network_traffic_drawable";
 
         /**
          * Whether the torch launch gesture to double tap or long press the power button when the
