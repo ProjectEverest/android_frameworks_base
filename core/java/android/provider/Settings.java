@@ -6384,26 +6384,11 @@ public final class Settings {
          */
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
-        /**
-         * Whether the phone vibrates on call connect
-         * @hide
-         */
-        @Readable
-        public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
-
-         /**
-         * Whether the phone vibrates on call waiting
-         * @hide
-         */
-        @Readable
-        public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
-
-         /**
-         * Whether the phone vibrates on disconnect
-         * @hide
-         */
-        @Readable
-        public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+       /**
+        * Whether to enable or disable vibration during calls
+        * @hide
+        */
+        public static final String INCALL_FEEDBACK_VIBRATE = "incall_feeedback_vibrate";
 
          /**
          * Volume rocker wake
@@ -7467,9 +7452,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_ANTI_FLICKER);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
-            PRIVATE_SETTINGS.add(VIBRATE_ON_CONNECT);
-            PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);
-            PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
+            PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(TRANSPARENT_POWER_MENU);
             PRIVATE_SETTINGS.add(TRANSPARENT_POWER_DIALOG_DIM);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
